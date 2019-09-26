@@ -1,0 +1,87 @@
+#step1
+get http://localhost:3001/api/persons
+###
+
+#step2
+get http://localhost:3001/info
+###
+
+#step3
+get http://localhost:3001/api/persons/2
+###
+
+#step3 -- not found
+get http://localhost:3001/api/persons/111
+###
+
+#step4
+delete http://localhost:3001/api/persons/2
+###
+
+#step5
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "name": "Alan Turing",
+    "number": "034-4567894"
+}
+###
+
+#step6 -- name missing
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "number": "034-4567894"
+}
+###
+
+#step6 -- number missing
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+    "name": "Alan Turing"
+}
+###
+
+#step6 -- name must be unique
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+        "name": "Arto Hellas",
+        "number": "040-123456"
+}
+###
+
+#3.19 step7
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+        "name": "Arto Hellas",
+        "number": "040-123456"  
+}
+###
+
+#3.20 step8
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+        "name": "Ar",
+        "number": "040-123456"  
+}
+###
+
+#3.20 step8
+post http://localhost:3001/api/persons
+content-type: application/json
+
+{
+        "name": "Alan",
+        "number": "040-12"  
+}
+###
